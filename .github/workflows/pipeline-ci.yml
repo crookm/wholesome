@@ -31,5 +31,5 @@ jobs:
       uses: actions/upload-artifact@v2.2.4
       with:
         name: packages
-        path: /src/**/bin/Release/**/*.nupkg
+        path: src/**/bin/Release/**/*.nupkg
         if-no-files-found: error
