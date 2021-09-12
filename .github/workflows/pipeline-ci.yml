@@ -26,10 +26,13 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build -c Release --verbosity normal
+      
+    - name: Stage artifacts
+      run: mkdir -p packages && cd $_ && mv $(find ../ -wholename *.nupkg) .
 
-    - name: Upload artifact
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2.2.4
       with:
         name: packages
-        path: src/**/bin/Release/**/*.nupkg
+        path: packages/*
         if-no-files-found: error
