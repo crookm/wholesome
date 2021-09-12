@@ -4,6 +4,11 @@
         <PackageId>Wholesome.DataAnnotations</PackageId>
         <Version>0.1.0</Version>
         <Authors>Matthew Crook</Authors>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Description>Recursive validation for DataAnnotations</Description>
+        <RepositoryUrl>https://github.com/crookm/wholesome</RepositoryUrl>
+        <PackageTags>data;validation;component model</PackageTags>
+        
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
