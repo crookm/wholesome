@@ -26,7 +26,7 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build -c Release --verbosity normal
-      
+
     - name: Stage artifacts
       run: mkdir -p packages && cd $_ && mv $(find ../ -wholename *.nupkg) .
 
@@ -36,3 +36,20 @@ jobs:
         name: packages
         path: packages/*
         if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: PROD
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2.0.8
+      with:
+        name: packages
+        path: packages
+
+    - name: Push packages
+      run: dotnet nuget push ./packages/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
