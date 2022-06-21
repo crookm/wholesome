@@ -8,6 +8,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wholesome.DataAnnotations",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wholesome.DataAnnotations.Tests", "test\Wholesome.DataAnnotations.Tests\Wholesome.DataAnnotations.Tests.csproj", "{200268BC-FB1E-4E3D-9CFA-1555E9898220}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{AD01267A-1CCC-486A-AFBE-EFC337307D54}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Jenkinsfile = Jenkinsfile
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
