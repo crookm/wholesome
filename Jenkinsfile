@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                dotnetRestore
+                dotnetRestore project: 'Wholesome.sln'
                 dotnetBuild configuration: 'Release', noRestore: true
             }
             
@@ -22,7 +22,7 @@ pipeline {
             
             post {
                 always {
-                    cobertura
+                    cobertura coberturaReportFile: '**/coverage.cobertura.xml'
                 }
             }
         }
