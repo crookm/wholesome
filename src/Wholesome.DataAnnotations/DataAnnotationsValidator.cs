@@ -8,11 +8,13 @@ namespace Wholesome.DataAnnotations
 {
     public class DataAnnotationsValidator : IDataAnnotationsValidator
     {
-        public static Lazy<DataAnnotationsValidator> Instance => new(() => new DataAnnotationsValidator());
+        public static Lazy<DataAnnotationsValidator> Instance =>
+            new Lazy<DataAnnotationsValidator>(() => new DataAnnotationsValidator());
 
         public bool TryValidate<T>(T input, ICollection<ValidationResult> results,
             IDictionary<object, object> validationContextItems = null)
-            => Validator.TryValidateObject(input, new ValidationContext(input, null, validationContextItems), results, true);
+            => Validator.TryValidateObject(input, new ValidationContext(input, null, validationContextItems), results,
+                true);
 
         public bool TryValidateRecursive<T>(T input, ICollection<ValidationResult> results,
             IDictionary<object, object> validationContextItems = null)
@@ -48,7 +50,8 @@ namespace Wholesome.DataAnnotations
                             if (enumerableObject == null) continue;
 
                             var innerResults = new List<ValidationResult>();
-                            if (TryValidateObjectRecursive(enumerableObject, innerResults, validatedObjects, validationContextItems))
+                            if (TryValidateObjectRecursive(enumerableObject, innerResults, validatedObjects,
+                                    validationContextItems))
                                 continue;
 
                             result = false;

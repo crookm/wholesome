@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Wholesome.DataAnnotations.Tests.TestData
+namespace Wholesome.DataAnnotations.Tests.TestData;
+
+public class CyclicalClass
 {
-    public class CyclicalClass
-    {
-        [Required] public string Something { get; set; }
-        [Required] public CyclicalClass Cyclical { get; set; }
-    }
+    [Required] public string Something { get; set; }
+    [Required] public CyclicalClass Cyclical { get; set; }
 }
