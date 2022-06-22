@@ -29,6 +29,7 @@ pipeline {
         }
         
         stage('publish') {
+            when { branch 'main' }
             steps {
                 dotnetNuGetPush root: '**/*.nupkg', source: 'https://www.nuget.org', apiKeyId: '2d95a085-0adc-474b-b7f2-d661fe005c08', skipDuplicate: true
             }
