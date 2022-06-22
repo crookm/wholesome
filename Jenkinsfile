@@ -17,11 +17,12 @@ pipeline {
         
         stage('test') {
             steps {
-                dotnetTest configuration: 'Release', noBuild: true, collect: 'XPlat Code Coverage'
+                dotnetTest configuration: 'Release', noBuild: true, logger: 'trx;test_results.xml', collect: 'XPlat Code Coverage'
             }
             
             post {
                 always {
+                    xunit followSymlink: false, reduceLog: false, tools: [xUnitDotNet(excludesPattern: '', pattern: '**/test_results.xml', stopProcessingIfError: true)]
                     cobertura coberturaReportFile: '**/coverage.cobertura.xml'
                 }
             }
