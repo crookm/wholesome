@@ -2,7 +2,7 @@
 
     <PropertyGroup Label="Nuget">
         <PackageId>Wholesome.DataAnnotations</PackageId>
-        <Version>0.1.1</Version>
+        <Version>0.1.2</Version>
         <Authors>Matthew Crook</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Description>Recursive validation for DataAnnotations</Description>
@@ -10,13 +10,11 @@
         <RepositoryUrl>https://github.com/crookm/wholesome.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>data;validation;component model</PackageTags>
-        
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
