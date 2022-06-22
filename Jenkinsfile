@@ -22,7 +22,7 @@ pipeline {
             
             post {
                 always {
-                    xunit followSymlink: false, reduceLog: false, tools: [xUnitDotNet(excludesPattern: '', pattern: '**/test_results.trx', stopProcessingIfError: true)]
+                    xunit followSymlink: false, reduceLog: false, tools: [MSTest(excludesPattern: '', pattern: '**/test_results.trx', stopProcessingIfError: true)]
                     cobertura coberturaReportFile: '**/coverage.cobertura.xml'
                 }
             }
