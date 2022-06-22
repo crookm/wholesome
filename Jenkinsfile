@@ -17,7 +17,7 @@ pipeline {
         
         stage('test') {
             steps {
-                dotnetTest configuration: 'Release', noBuild: true, logger: 'trx;test_results.xml', collect: 'XPlat Code Coverage'
+                dotnetTest configuration: 'Release', noBuild: true, logger: '"trx;test_results.xml"', collect: 'XPlat Code Coverage'
             }
             
             post {
